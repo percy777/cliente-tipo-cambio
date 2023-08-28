@@ -1,0 +1,43 @@
+<div class="card border-primary mb-3" style="max-width: 50rem;">
+    <div class="card-body text-primary mb-3">
+      <h5 class="card-title">Consultas Realizadas</h5>
+      <div class="form-group row">
+        <div class="col-sm-6">
+              <button class="btn btn-primary" role="button"  routerLink="/clientes/formulario" >Consulte su tipo de cambio</button>  
+        </div>
+    </div>
+    <div *ngIf="lasMonedas.length==0">
+        <h6 >No hay registros de consultas</h6>
+    </div>
+    <table class="table table-bordered table striped" *ngIf="lasMonedas.length>0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>MONTO</th>
+                <th>TIPO CAMBIO</th>
+                <th>MONTO CAMBIO</th>
+                <th>MONEDA ORIGEN</th>
+                <th>MONEDA DESTINO</th>
+                <th></th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            <tr *ngFor="let monedas of lasMonedas">
+            <td>{{ monedas.id }}</td>
+            <td>{{ monedas.monto }}</td>
+            <td>{{ monedas.tipoCambio }}</td>
+            <td>{{ monedas.monedaCambio }}</td>
+            <td>{{ monedas.monedaOrigen }}</td>
+            <td>{{ monedas.monedaDestino }}</td>
+            
+            <td>
+                <div class="col-sm-2">
+                    <button class="btn btn-outline-danger" role="button" (click)='borrar(monedas)' >Borrar</button>  
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+  </div>

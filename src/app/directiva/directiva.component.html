@@ -1,0 +1,8 @@
+<button type="button" (click)="mostrarHabilitar()" class="btn-outline-success">{{(habilitar==true)?boton.btn2:boton.btn1}}</button>
+<div class="card">
+    <div class="card-header">lista de lenguajes que conosco</div>
+    <ul *ngIf="habilitar == true">
+        <li ng *ngFor="let curso of listaCurso">{{ curso }}</li>
+    </ul>
+
+</div>

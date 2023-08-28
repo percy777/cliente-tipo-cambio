@@ -1,0 +1,46 @@
+<div class="card border-primary mb-3" style="max-width: 50rem;">
+    <div class="card-body text-primary mb-3">
+      <h5 class="card-title">Listado de Clientes</h5>
+      <div class="form-group row">
+        <div class="col-sm-6">
+              <button class="btn btn-primary" role="button"  routerLink="/clientes/formulario" >Agregar Cliente</button>  
+        </div>
+    </div>
+    <div *ngIf="losClientes.length==0">
+        <h6 >No hay clientes</h6>
+    </div>
+    <table class="table table-bordered table striped" *ngIf="losClientes.length>0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>APELLIDO</th>
+                <th>FECHA</th>
+                <th>TELEFONO</th>
+                <th>editar</th>
+                <th>eliminar</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            <tr *ngFor="let asdf of losClientes">
+            <td>{{ asdf.id }}</td>
+            <td>{{ asdf.nombre }}</td>
+            <td>{{ asdf.apellido }}</td>
+            <td>{{ asdf.createAt }}</td>
+            <td>{{ asdf.telefono }}</td>
+            <td>
+                <div class="col-sm-2">
+                    <button class="btn btn-primary" role="button" [routerLink]="['/clientes/formulario',asdf.id]" >Editar</button>  
+                </div>
+            </td>
+            <td>
+                <div class="col-sm-2">
+                    <button class="btn btn-outline-danger" role="button" (click)='borrar(asdf)' >Borrar</button>  
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+  </div>

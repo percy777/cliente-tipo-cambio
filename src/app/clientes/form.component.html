@@ -1,0 +1,69 @@
+<div class = "card bg-dark text-white">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+
+        <!-- <form (ngSubmit)="agregar()"> -->
+        <form>
+            <div class="form-group row">
+                 <label class="col-form-label col-sm-2" for = "nombre">MONTO</label>   
+                <div class="col-sm-6">
+                    <input class="form-control" type="text" [(ngModel)]="moneda.monto" name="nombre">
+
+
+                </div>    
+            </div>
+
+            <!-- <div class="form-group row">
+                <label class="col-form-label col-sm-2" for="apellido">MONEDA ORIGEN</label>   
+               <div class="col-sm-6">
+                   <input class="form-control" type="text" [(ngModel)]="moneda.monedaOrigen" name="apellido">
+
+
+               </div>    
+           </div> -->
+           <div class="form-group row">
+            <label class="col-form-label col-sm-2" for="apellido">MONEDA ORIGEN</label>   
+            <div class="col-sm-6">
+             <select name="origen" (change)="cambioMoneOrige($event)" aria-label="Large select example" class="form-select">
+                <option>Elija moneda origen</option>
+                <option [value]="monorig"  *ngFor="let monorig of listaMonedaOrigen">
+                    {{monorig}}
+                </option>
+             </select>
+           </div>
+           </div>
+           <!-- <div class="form-group row">
+                <label class="col-form-label col-sm-2" for="correo">MONEDA DESTINO</label>   
+            <div class="col-sm-6">
+                <input class="form-control" type="text" [(ngModel)]="moneda.monedaDestino" name="correo">
+
+
+            </div>    
+            </div> -->
+            <div class="form-group row">
+                <label class="col-form-label col-sm-2" for="apellido">MONEDA DESTINO</label>   
+                <div class="col-sm-6">
+                    <select name="origen" (change)="cambioMoneDest($event)" aria-label="Large select example" class="form-select">
+                        <option>Elija moneda destino</option>
+                        <option [value]="mondest"  *ngFor="let mondest of listaMonedadestino">
+                            {{mondest}}
+                        </option>
+                     </select>
+               </div>
+               </div>
+        
+            <div class="form-group row">
+                <div class="col-sm-6">
+                      <!-- <button class="btn btn-primary" role="button">Agregar</button>   -->
+                      <button type="button"  class="btn btn-primary" role="button" (click)='agregar()' *ngIf="!moneda.id else elseBlock" >Agregar</button>
+
+                      <ng-template #elseBlock>
+                        <button type="button"  class="btn btn-primary" role="button" (click)='actualizar()' >Actualizar</button>
+                      </ng-template>
+                </div>
+            </div>
+   
+        </form>
+    </div>
+
+</div>
